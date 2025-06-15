@@ -156,7 +156,7 @@ ScionX Consultation Form
                 className="w-full h-full object-contain rounded-lg bg-white/10"
               />
             </div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-lg font-semibold text-white">
               ScionX Web3 Consulting Services
             </h1>
           </div>
