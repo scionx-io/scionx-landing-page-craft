@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LanguageSelector from '@/components/LanguageSelector';
 
@@ -22,7 +21,10 @@ const Header = () => {
             </h1>
           </div>
           <div className="flex items-center border-4 border-pink-400 bg-yellow-50 p-2 rounded-md">
-            {/* DEBUG: If Suspense fails or does not resolve, will be shown. */}
+            {/* DEBUG: Marker before Suspense */}
+            <div className="bg-blue-300 text-blue-900 font-extrabold px-4 py-2 rounded-xl text-2xl mr-2">
+              BEFORE SUSPENSE
+            </div>
             <React.Suspense fallback={
               <div className="bg-red-900 text-yellow-200 text-lg font-bold px-3 py-2 rounded-md">
                 Suspense fallback: LanguageSelector did NOT render!
@@ -30,6 +32,10 @@ const Header = () => {
             }>
               <LanguageSelector />
             </React.Suspense>
+            {/* DEBUG: Marker after Suspense */}
+            <div className="bg-blue-300 text-blue-900 font-extrabold px-4 py-2 rounded-xl text-2xl ml-2">
+              AFTER SUSPENSE
+            </div>
           </div>
         </div>
       </div>
