@@ -207,20 +207,35 @@
         }
 
         .stablecoin-item {
-            background: rgba(96,165,250, 0.10);
-            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(96,165,250,0.18);
             border-radius: 12px;
-            padding: 0.75rem 1.25rem;
-            color: var(--text-accent);
+            padding: 1rem 1.5rem;
+            color: #60a5fa;
             font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-            transition: var(--transition-smooth);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-direction: column;
         }
 
         .stablecoin-item:hover {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 100%);
             color: #0f0f23;
             transform: scale(1.05);
+        }
+
+        .stablecoin-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .stablecoin-item span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
         }
 
         .packages {
@@ -525,12 +540,30 @@
         <div class="container">
             <h2>Stablecoins We Support</h2>
             <div class="stablecoins-grid">
-                <div class="stablecoin-item">USDC</div>
-                <div class="stablecoin-item">RLUSD</div>
-                <div class="stablecoin-item">USDT</div>
-                <div class="stablecoin-item">EURC</div>
-                <div class="stablecoin-item">PYUSD</div>
-                <div class="stablecoin-item">FDUSD</div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC" class="stablecoin-logo">
+                    <span>USDC</span>
+                </div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" alt="RLUSD" class="stablecoin-logo">
+                    <span>RLUSD</span>
+                </div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" class="stablecoin-logo">
+                    <span>USDT</span>
+                </div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/centre-eurc-logo.png" alt="EURC" class="stablecoin-logo">
+                    <span>EURC</span>
+                </div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/paypal-usd-pyusd-logo.png" alt="PYUSD" class="stablecoin-logo">
+                    <span>PYUSD</span>
+                </div>
+                <div class="stablecoin-item">
+                    <img src="https://cryptologos.cc/logos/first-digital-usd-fdusd-logo.png" alt="FDUSD" class="stablecoin-logo">
+                    <span>FDUSD</span>
+                </div>
             </div>
         </div>
     </section>
