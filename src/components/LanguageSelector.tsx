@@ -20,20 +20,19 @@ const languages = [
 const LanguageSelector = () => {
   // Outer try/catch to visibly crash if context is not available
   try {
-    console.log('[LanguageSelector DEBUG] Rendering LanguageSelector...');
-    const { language, setLanguage } = useLanguage();
-    console.log('[LanguageSelector DEBUG] Current language:', language);
-
+    // The context must always exist, because LanguageProvider wraps the tree.
+    const context = React.useContext(require('@/contexts/LanguageContext').default);
+    if (!context) {
+      throw new Error('LanguageContext is undefined - likely not wrapped by LanguageProvider');
+    }
+    // If we get here, context is defined.
+    const { language, setLanguage } = require('@/contexts/LanguageContext').useLanguage();
     const currentLanguage = languages.find(lang => lang.code === language);
-    console.log('[LanguageSelector DEBUG] Current language object:', currentLanguage);
 
     return (
       <div className="min-w-[180px] border-4 border-green-500 bg-green-100 p-1">
         <div className="text-black text-xs mb-1 font-bold">LANGUAGE SELECTOR DEBUG</div>
-        <Select value={language} onValueChange={(value: Language) => {
-          console.log('Language changed to:', value);
-          setLanguage(value);
-        }}>
+        <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
           <SelectTrigger className="w-full bg-slate-800 border-slate-600 text-white hover:bg-slate-700">
             <SelectValue>
               <div className="flex items-center gap-2">
@@ -61,10 +60,12 @@ const LanguageSelector = () => {
       </div>
     );
   } catch (e) {
-    console.error('[LanguageSelector ERROR] Rendering failed:', e);
+    // Show the full error, huge and visible
     return (
-      <div className="bg-red-800 text-white font-bold p-2 rounded">
-        LANGUAGE SELECTOR: RENDER ERROR — See console
+      <div className="bg-red-900 text-white font-bold text-xl p-6 rounded-lg border-4 border-yellow-300">
+        LANGUAGE SELECTOR ERROR:
+        <div className="mt-2 text-base break-all">{(e as Error).message}</div>
+        <div className="text-xs mt-2">Check LanguageProvider wrapping in App.tsx</div>
       </div>
     );
   }

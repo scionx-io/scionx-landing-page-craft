@@ -22,11 +22,12 @@ const Header = () => {
             </h1>
           </div>
           <div className="flex items-center border-4 border-pink-400 bg-yellow-50 p-2 rounded-md">
-            <div className="mr-4 font-bold text-pink-800 bg-pink-100 px-2 py-1 rounded">
-              HEADER DEBUG: LanguageSelector below ⬇️
-            </div>
-            {/* Try-catch block for LanguageSelector */}
-            <React.Suspense fallback={<div className="text-red-800">Selector Suspense Fallback</div>}>
+            {/* DEBUG: If Suspense fails or does not resolve, will be shown. */}
+            <React.Suspense fallback={
+              <div className="bg-red-900 text-yellow-200 text-lg font-bold px-3 py-2 rounded-md">
+                Suspense fallback: LanguageSelector did NOT render!
+              </div>
+            }>
               <LanguageSelector />
             </React.Suspense>
           </div>
