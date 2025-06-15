@@ -22,15 +22,19 @@ const LanguageSelector = () => {
   console.log('LanguageSelector rendering, current language:', language);
 
   const currentLanguage = languages.find(lang => lang.code === language);
+  console.log('Current language object:', currentLanguage);
 
   return (
     <div className="min-w-[180px]">
-      <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+      <Select value={language} onValueChange={(value: Language) => {
+        console.log('Language changed to:', value);
+        setLanguage(value);
+      }}>
         <SelectTrigger className="w-full bg-slate-800/50 border-slate-600 text-white">
           <div className="flex items-center gap-2">
             <Globe className="w-4 h-4" />
             <span>{currentLanguage?.flag}</span>
-            <SelectValue />
+            <span>{currentLanguage?.name || language}</span>
           </div>
         </SelectTrigger>
         <SelectContent className="bg-slate-800 border-slate-600 z-[100]">
