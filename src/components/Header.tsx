@@ -3,6 +3,8 @@ import React from 'react';
 import LanguageSelector from '@/components/LanguageSelector';
 
 const Header = () => {
+  console.log('Header component rendering');
+  
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800">
       <div className="container mx-auto px-6 py-4">
@@ -15,11 +17,13 @@ const Header = () => {
                 className="w-full h-full object-contain rounded-lg bg-white/10"
               />
             </div>
-            <h1 className="text-lg font-semibold" style={{ color: '#ffffff !important', textDecoration: 'none' }}>
+            <h1 className="text-lg font-semibold text-white">
               ScionX Web3 Consulting Services
             </h1>
           </div>
-          <LanguageSelector />
+          <div className="bg-red-500 p-2 rounded">
+            <LanguageSelector />
+          </div>
         </div>
       </div>
     </header>

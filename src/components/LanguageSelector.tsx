@@ -19,33 +19,36 @@ const languages = [
 
 const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
+  console.log('LanguageSelector rendering, current language:', language);
 
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
-    <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
-      <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-600 text-white">
-        <div className="flex items-center gap-2">
-          <Globe className="w-4 h-4" />
-          <span>{currentLanguage?.flag}</span>
-          <SelectValue />
-        </div>
-      </SelectTrigger>
-      <SelectContent className="bg-slate-800 border-slate-600">
-        {languages.map((lang) => (
-          <SelectItem 
-            key={lang.code} 
-            value={lang.code}
-            className="text-white hover:bg-slate-700 focus:bg-slate-700"
-          >
-            <div className="flex items-center gap-2">
-              <span>{lang.flag}</span>
-              <span>{lang.name}</span>
-            </div>
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <div className="min-w-[180px]">
+      <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+        <SelectTrigger className="w-full bg-slate-800/50 border-slate-600 text-white">
+          <div className="flex items-center gap-2">
+            <Globe className="w-4 h-4" />
+            <span>{currentLanguage?.flag}</span>
+            <SelectValue />
+          </div>
+        </SelectTrigger>
+        <SelectContent className="bg-slate-800 border-slate-600 z-[100]">
+          {languages.map((lang) => (
+            <SelectItem 
+              key={lang.code} 
+              value={lang.code}
+              className="text-white hover:bg-slate-700 focus:bg-slate-700"
+            >
+              <div className="flex items-center gap-2">
+                <span>{lang.flag}</span>
+                <span>{lang.name}</span>
+              </div>
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
   );
 };
 
