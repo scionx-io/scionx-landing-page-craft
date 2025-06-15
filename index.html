@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +8,25 @@
     <link rel="icon" type="image/png" href="img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 100%);
-            --secondary-gradient: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
-            --accent-gradient: linear-gradient(135deg, #a5b4fc 0%, #93c5fd 100%);
+            --primary-green: #00D632;
+            --primary-green-hover: #00B82A;
+            --primary-green-light: #33E355;
+            --primary-gradient: linear-gradient(135deg, #00D632 0%, #00B82A 100%);
+            --secondary-gradient: linear-gradient(135deg, #00E038 0%, #00D632 100%);
+            --accent-gradient: linear-gradient(135deg, #33E355 0%, #00D632 100%);
             --background-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0d0d0d 100%);
             --section-gradient: linear-gradient(135deg, #000000 0%, #111111 50%, #0a0a0a 100%);
             --card-gradient: linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(15,15,15,0.95) 100%);
             --card-bg: rgba(20,20,20,0.84);
-            --card-border: rgba(96,165,250,0.18);
-            --text-primary: #e5e7eb;
+            --card-border: rgba(0,214,50,0.18);
+            --text-primary: #ffffff;
             --text-secondary: #d1d5db;
-            --text-accent: #60a5fa;
-            --text-accent-hover: #93c5fd;
-            --shadow-primary: rgba(96,165,250, 0.32);
+            --text-accent: #00D632;
+            --text-accent-hover: #00E038;
+            --shadow-primary: rgba(0,214,50, 0.32);
             --shadow-secondary: rgba(0,0,0,0.25);
             --transition-smooth: all 0.3s cubic-bezier(0.4,0,0.2,1);
         }
@@ -36,12 +38,13 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--background-gradient);
             min-height: 100vh;
             position: relative;
+            font-weight: 400;
         }
 
         body::before {
@@ -52,8 +55,8 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(96,165,250,0.09) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(165,180,252,0.09) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(0,214,50,0.09) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,224,56,0.09) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -65,8 +68,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
-            backdrop-filter: blur(20px);
+            background: #000000;
             border-bottom: 1px solid var(--card-border);
             padding: 1rem 0;
             position: sticky;
@@ -102,7 +104,7 @@
             color: #ffffff !important;
             font-size: 0.9rem;
             font-weight: 500;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Inter', sans-serif;
         }
 
         .hero {
@@ -131,7 +133,7 @@
 
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 100%);
             -webkit-background-clip: text;
@@ -151,6 +153,7 @@
             margin-right: auto;
             position: relative;
             z-index: 1;
+            font-weight: 400;
         }
 
         .benefits {
@@ -180,7 +183,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(96,165,250,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0,214,50,0.08) 0%, transparent 70%);
             opacity: 0;
             transition: var(--transition-smooth);
             transform: scale(0);
@@ -188,7 +191,7 @@
 
         .benefit-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(96,165,250,0.22);
+            border-color: rgba(0,214,50,0.22);
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
@@ -203,6 +206,7 @@
             color: var(--text-primary);
             position: relative;
             z-index: 1;
+            font-weight: 600;
         }
 
         .benefit-card p {
@@ -210,12 +214,13 @@
             font-size: 0.9rem;
             position: relative;
             z-index: 1;
+            font-weight: 400;
         }
 
         .stablecoins-section {
             background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(20,20,20,0.9) 50%, rgba(5,5,5,0.9) 100%);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(96,165,250,0.08);
+            border: 1px solid rgba(0,214,50,0.08);
             border-radius: 20px;
             padding: 2rem;
             margin: 3rem 0;
@@ -240,10 +245,10 @@
 
         .stablecoin-item {
             background: linear-gradient(135deg, rgba(30,30,30,0.8) 0%, rgba(40,40,40,0.8) 100%);
-            border: 1px solid rgba(96,165,250,0.18);
+            border: 1px solid rgba(0,214,50,0.18);
             border-radius: 12px;
             padding: 1rem 1.5rem;
-            color: #60a5fa;
+            color: #00D632;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             display: flex;
@@ -254,10 +259,10 @@
         }
 
         .stablecoin-item:hover {
-            background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 100%);
-            color: #0f0f23;
+            background: var(--primary-gradient);
+            color: #000000;
             transform: scale(1.05);
-            box-shadow: 0 8px 32px rgba(96,165,250,0.3);
+            box-shadow: 0 8px 32px rgba(0,214,50,0.3);
         }
 
         .stablecoin-logo {
@@ -268,14 +273,15 @@
         }
 
         .stablecoin-item span {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .packages {
             background: linear-gradient(135deg, rgba(5,5,5,0.95) 0%, rgba(15,15,15,0.95) 50%, rgba(8,8,8,0.95) 100%);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(96,165,250,0.08);
+            border: 1px solid rgba(0,214,50,0.08);
             border-radius: 20px;
             padding: 3rem;
             margin: 3rem 0;
@@ -298,7 +304,7 @@
         }
 
         .package-card {
-            border: 1px solid rgba(96,165,250,0.12);
+            border: 1px solid rgba(0,214,50,0.12);
             border-radius: 16px;
             padding: 2rem;
             position: relative;
@@ -310,7 +316,7 @@
         .package-card:hover {
             border-color: var(--text-accent);
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(96,165,250,0.2);
+            box-shadow: 0 20px 60px rgba(0,214,50,0.2);
         }
 
         .package-header {
@@ -344,6 +350,7 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         .package-price {
@@ -363,6 +370,7 @@
             color: var(--text-secondary);
             position: relative;
             padding-left: 1.5rem;
+            font-weight: 400;
         }
 
         .package-features li:before {
@@ -376,7 +384,7 @@
         .form-section {
             background: linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(18,18,18,0.95) 50%, rgba(10,10,10,0.95) 100%);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(96,165,250,0.08);
+            border: 1px solid rgba(0,214,50,0.08);
             border-radius: 20px;
             padding: 3rem;
             margin: 3rem 0;
@@ -418,13 +426,15 @@
         .form-group select,
         .form-group textarea {
             padding: 0.75rem;
-            border: 1px solid rgba(96,165,250,0.12);
+            border: 1px solid rgba(0,214,50,0.12);
             border-radius: 8px;
             font-size: 1rem;
             background: linear-gradient(135deg, rgba(25,25,25,0.8) 0%, rgba(30,30,30,0.8) 100%);
             color: var(--text-primary);
             backdrop-filter: blur(10px);
             transition: var(--transition-smooth);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
 
         .form-group input:focus,
@@ -432,7 +442,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--text-accent);
-            box-shadow: 0 0 0 2px rgba(96,165,250,0.2);
+            box-shadow: 0 0 0 2px rgba(0,214,50,0.2);
         }
 
         .form-group input::placeholder,
@@ -447,7 +457,7 @@
 
         .submit-btn {
             background: var(--primary-gradient);
-            color: #0f0f23;
+            color: #000000;
             padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
@@ -457,12 +467,14 @@
             transition: var(--transition-smooth);
             margin-top: 1rem;
             width: 100%;
-            box-shadow: 0 4px 16px rgba(96,165,250,0.3);
+            box-shadow: 0 4px 16px rgba(0,214,50,0.3);
+            font-family: 'Inter', sans-serif;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(96,165,250,0.4);
+            box-shadow: 0 10px 30px rgba(0,214,50,0.4);
+            background: var(--secondary-gradient);
         }
 
         .footer {
@@ -496,7 +508,7 @@
         }
 
         .footer-brand {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Inter', sans-serif;
             color: var(--text-accent);
             font-weight: 500;
         }
