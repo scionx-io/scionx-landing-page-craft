@@ -1,5 +1,7 @@
+
 import React from 'react';
-import LanguageSelector from '@/components/LanguageSelector';
+// Use React.lazy for LanguageSelector
+const LanguageSelector = React.lazy(() => import('@/components/LanguageSelector'));
 
 const Header = () => {
   console.log('Header component rendering');
