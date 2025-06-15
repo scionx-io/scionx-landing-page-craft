@@ -1,7 +1,9 @@
-
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const StablecoinsSection = () => {
+  const { t } = useLanguage();
+  
   const stablecoins = [
     { name: "USDC", logo: "/public/lovable-uploads/cb2e462b-2649-41db-86f8-81f8f56c6383.png" },
     { name: "RLUSD", logo: "/public/lovable-uploads/3554892a-692b-46bd-a420-25f9cb9655b1.png" },
@@ -16,7 +18,7 @@ const StablecoinsSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8 text-white">
-            Built for the New Era of Digital Currencies
+            {t('built_for_era')}
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
             {stablecoins.map((coin, index) => (

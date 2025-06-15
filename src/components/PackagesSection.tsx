@@ -3,11 +3,14 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check, ArrowDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PackagesSection = () => {
+  const { t } = useLanguage();
+
   const packages = [
     {
-      name: "Starter",
+      name: t('starter'),
       price: "$500",
       description: "For early-stage teams exploring stablecoins",
       features: [
@@ -21,7 +24,7 @@ const PackagesSection = () => {
       highlighted: false
     },
     {
-      name: "Growth",
+      name: t('growth'),
       price: "$1,500 - $3,000",
       description: "For teams designing their first stablecoin payment flow",
       features: [
@@ -36,7 +39,7 @@ const PackagesSection = () => {
       highlighted: true
     },
     {
-      name: "Scale",
+      name: t('scale'),
       price: "Custom Pricing",
       description: "For teams actively building or launching",
       features: [
@@ -55,7 +58,7 @@ const PackagesSection = () => {
     <section id="packages" className="py-24 bg-slate-900/30">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 text-white">
-          Our Packages
+          {t('our_packages')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {packages.map((pkg, index) => (

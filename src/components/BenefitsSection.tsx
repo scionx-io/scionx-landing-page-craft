@@ -2,48 +2,51 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Zap, DollarSign, Smartphone, Globe, Check, Shield, ArrowRight, Clock } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const BenefitsSection = () => {
+  const { t } = useLanguage();
+
   const benefits = [
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Instant Transfers",
-      description: "Cross-border payments in minutes, not days"
+      title: t('instant_transfers'),
+      description: t('instant_transfers_desc')
     },
     {
       icon: <DollarSign className="w-6 h-6" />,
-      title: "Lower Fees",
-      description: "Reduce costs by up to 90% vs traditional banks"
+      title: t('lower_fees'),
+      description: t('lower_fees_desc')
     },
     {
       icon: <Smartphone className="w-6 h-6" />,
-      title: "Wallet-Native",
-      description: "Works with crypto wallets — no bank needed"
+      title: t('wallet_native'),
+      description: t('wallet_native_desc')
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Global Reach",
-      description: "Ideal for remote teams and international payouts"
+      title: t('global_reach'),
+      description: t('global_reach_desc')
     },
     {
       icon: <Check className="w-6 h-6" />,
-      title: "Transparent",
-      description: "Trackable, programmable, and fully auditable"
+      title: t('transparent'),
+      description: t('transparent_desc')
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Compliant",
-      description: "Navigate regulations across multiple jurisdictions"
+      title: t('compliant'),
+      description: t('compliant_desc')
     },
     {
       icon: <ArrowRight className="w-6 h-6" />,
-      title: "Scalable",
-      description: "Scale to $100M+ monthly volume capacity"
+      title: t('scalable'),
+      description: t('scalable_desc')
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "24/7 Operations",
-      description: "No banking hours - payments work around the clock"
+      title: t('operations_24_7'),
+      description: t('operations_24_7_desc')
     }
   ];
 
@@ -51,7 +54,7 @@ const BenefitsSection = () => {
     <section className="py-24 bg-slate-900/50">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 text-white">
-          Why Choose Stablecoin Payments?
+          {t('why_choose')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
