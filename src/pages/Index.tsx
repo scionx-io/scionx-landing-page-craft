@@ -279,7 +279,6 @@ const Index = () => {
                 <form 
                   action="https://api.web3forms.com/submit" 
                   method="POST" 
-                  onSubmit={handleFormSubmit}
                   className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
                   {/* Web3Forms Access Key */}
