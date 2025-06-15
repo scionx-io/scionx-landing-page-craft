@@ -18,6 +18,8 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
+  console.log('LanguageSelector component rendering');
+  
   const { language, setLanguage } = useLanguage();
   console.log('LanguageSelector rendering, current language:', language);
 
@@ -25,17 +27,20 @@ const LanguageSelector = () => {
   console.log('Current language object:', currentLanguage);
 
   return (
-    <div className="min-w-[180px]">
+    <div className="min-w-[180px] border-2 border-red-500 bg-white p-1">
+      <div className="text-black text-xs mb-1">Selector Debug</div>
       <Select value={language} onValueChange={(value: Language) => {
         console.log('Language changed to:', value);
         setLanguage(value);
       }}>
-        <SelectTrigger className="w-full bg-slate-800/50 border-slate-600 text-white hover:bg-slate-700/50">
-          <div className="flex items-center gap-2 w-full">
-            <Globe className="w-4 h-4 flex-shrink-0" />
-            <span className="flex-shrink-0">{currentLanguage?.flag}</span>
-            <span className="flex-1 text-left truncate">{currentLanguage?.name || 'English'}</span>
-          </div>
+        <SelectTrigger className="w-full bg-slate-800 border-slate-600 text-white hover:bg-slate-700">
+          <SelectValue>
+            <div className="flex items-center gap-2">
+              <Globe className="w-4 h-4" />
+              <span>{currentLanguage?.flag || '🇺🇸'}</span>
+              <span>{currentLanguage?.name || 'English'}</span>
+            </div>
+          </SelectValue>
         </SelectTrigger>
         <SelectContent className="bg-slate-800 border-slate-600 z-[9999] min-w-[180px]">
           {languages.map((lang) => (
