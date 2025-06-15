@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -106,12 +107,6 @@ const Index = () => {
     const subject = `${packageName} Package Consultation Request`;
     const body = `Hi, I'm interested in the ${packageName} package consultation. Please let me know your availability.`;
     window.location.href = `mailto:wecare@scionx.consulting?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Web3Forms will handle the submission automatically
-    alert('Thank you for your submission! We will get back to you soon.');
   };
 
   return (
