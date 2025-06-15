@@ -710,7 +710,13 @@
     <section class="form-section">
         <div class="container">
             <h2>Get Started Today</h2>
-            <form class="form-grid" id="consultationForm">
+            <form class="form-grid" action="https://api.web3forms.com/submit" method="POST" id="consultationForm">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="ac3ac16f-f5d1-450b-be8f-2e3a01158129">
+                
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                 <div class="form-group">
                     <label for="name">Name <span class="required">*</span></label>
                     <input type="text" id="name" name="name" required placeholder="Your full name">
@@ -777,8 +783,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="comments">Additional Comments</label>
-                    <textarea id="comments" name="comments" placeholder="Any specific requirements or questions?"></textarea>
+                    <label for="message">Additional Comments</label>
+                    <textarea id="message" name="message" placeholder="Any specific requirements or questions?"></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">Schedule Consultation</button>
@@ -800,47 +806,8 @@
 
     <script>
         document.getElementById('consultationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = {};
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            
-            console.log('Form submitted with data:', data);
-            
-            // Create email body with form data
-            const emailBody = `
-New Consultation Request:
-
-Name: ${data.name}
-Email: ${data.email}
-Company/Project: ${data.company || 'Not specified'}
-Region/Country: ${data.region || 'Not specified'}
-Use Case: ${data.useCase}
-Payment Volume: ${data.volume || 'Not specified'}
-Preferred Tokens: ${data.tokens || 'Not specified'}
-Interested Package: ${data.package}
-Current Infrastructure: ${data.infrastructure || 'Not specified'}
-Additional Comments: ${data.comments || 'None'}
-
-Best regards,
-ScionX Consultation Form
-            `.trim();
-            
-            // Create mailto link
-            const mailtoLink = `mailto:wecare@scionx.consulting?subject=New Consultation Request from ${data.name}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            alert('Your default email client should open with the consultation request. If it doesn\'t open automatically, please email us directly at wecare@scionx.consulting');
-            
-            // Reset form
-            this.reset();
+            // Let Web3Forms handle the submission
+            alert('Thank you for your submission! We will get back to you soon.');
         });
     </script>
 </body>

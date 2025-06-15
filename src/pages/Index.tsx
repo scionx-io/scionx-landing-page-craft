@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -111,36 +110,8 @@ const Index = () => {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
-    
-    for (let [key, value] of formData.entries()) {
-      data[key] = value.toString();
-    }
-
-    const emailBody = `
-New Consultation Request:
-
-Name: ${data.name}
-Email: ${data.email}
-Company/Project: ${data.company || 'Not specified'}
-Region/Country: ${data.region || 'Not specified'}
-Use Case: ${data.useCase}
-Payment Volume: ${data.volume || 'Not specified'}
-Preferred Tokens: ${data.tokens || 'Not specified'}
-Interested Package: ${data.package}
-Current Infrastructure: ${data.infrastructure || 'Not specified'}
-Additional Comments: ${data.comments || 'None'}
-
-Best regards,
-ScionX Consultation Form
-    `.trim();
-
-    const mailtoLink = `mailto:wecare@scionx.consulting?subject=${encodeURIComponent(`New Consultation Request from ${data.name}`)}&body=${encodeURIComponent(emailBody)}`;
-    window.location.href = mailtoLink;
-    
-    alert('Your default email client should open with the consultation request. If it doesn\'t open automatically, please email us directly at wecare@scionx.consulting');
-    e.currentTarget.reset();
+    // Web3Forms will handle the submission automatically
+    alert('Thank you for your submission! We will get back to you soon.');
   };
 
   return (
@@ -305,7 +276,18 @@ ScionX Consultation Form
             </h2>
             <Card className="bg-slate-800/50 border-slate-700">
               <CardContent className="p-8">
-                <form onSubmit={handleFormSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form 
+                  action="https://api.web3forms.com/submit" 
+                  method="POST" 
+                  onSubmit={handleFormSubmit}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
+                  {/* Web3Forms Access Key */}
+                  <input type="hidden" name="access_key" value="ac3ac16f-f5d1-450b-be8f-2e3a01158129" />
+                  
+                  {/* Honeypot Spam Protection */}
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-slate-300">
                       Name <span className="text-red-400">*</span>
