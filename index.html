@@ -617,6 +617,7 @@
                         <li>1-page flow outline + next steps</li>
                         <li>PDF summary with recommendations</li>
                     </ul>
+                    <a href="mailto:wecare@scionx.consulting?subject=Starter Package Consultation Request&body=Hi, I'm interested in the Starter package consultation. Please let me know your availability." class="submit-btn" style="text-decoration: none; display: block; text-align: center;">Schedule Consultation</a>
                 </div>
 
                 <div class="package-card">
@@ -635,6 +636,7 @@
                         <li>2 support calls to refine implementation</li>
                         <li>Comprehensive PDF blueprint</li>
                     </ul>
+                    <a href="mailto:wecare@scionx.consulting?subject=Growth Package Consultation Request&body=Hi, I'm interested in the Growth package consultation. Please let me know your availability." class="submit-btn" style="text-decoration: none; display: block; text-align: center;">Schedule Consultation</a>
                 </div>
 
                 <div class="package-card">
@@ -652,6 +654,7 @@
                         <li>Ongoing support via email or Slack</li>
                         <li>Ongoing advisory & partner coordination</li>
                     </ul>
+                    <a href="mailto:wecare@scionx.consulting?subject=Scale Package Consultation Request&body=Hi, I'm interested in the Scale package consultation. Please let me know your availability." class="submit-btn" style="text-decoration: none; display: block; text-align: center;">Schedule Consultation</a>
                 </div>
             </div>
         </div>
@@ -759,11 +762,35 @@
                 data[key] = value;
             }
             
-            // In a real implementation, you would send this data to your backend
             console.log('Form submitted with data:', data);
             
+            // Create email body with form data
+            const emailBody = `
+New Consultation Request:
+
+Name: ${data.name}
+Email: ${data.email}
+Company/Project: ${data.company || 'Not specified'}
+Region/Country: ${data.region || 'Not specified'}
+Use Case: ${data.useCase}
+Payment Volume: ${data.volume || 'Not specified'}
+Preferred Tokens: ${data.tokens || 'Not specified'}
+Interested Package: ${data.package}
+Current Infrastructure: ${data.infrastructure || 'Not specified'}
+Additional Comments: ${data.comments || 'None'}
+
+Best regards,
+ScionX Consultation Form
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:wecare@scionx.consulting?subject=New Consultation Request from ${data.name}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
             // Show success message
-            alert('Thank you for your interest! We\'ll be in touch within 24 hours to schedule your consultation.');
+            alert('Your default email client should open with the consultation request. If it doesn\'t open automatically, please email us directly at wecare@scionx.consulting');
             
             // Reset form
             this.reset();
