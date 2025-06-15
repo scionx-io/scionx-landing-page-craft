@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Check, Globe, Zap, DollarSign, Shield, Clock, Smartphone } from 'lucide-react';
+import { ArrowRight, Check, Globe, Zap, DollarSign, Shield, Clock, Smartphone, ArrowDown } from 'lucide-react';
 
 const Index = () => {
   const benefits = [
@@ -244,19 +245,24 @@ const Index = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    className={`w-full font-semibold rounded-xl transition-all duration-300 ${
-                      pkg.highlighted
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25'
-                        : 'bg-slate-700 hover:bg-slate-600 text-white'
-                    }`}
-                    onClick={() => handlePackageContact(pkg.name)}
-                  >
-                    Schedule Consultation
-                  </Button>
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <p className="text-xl text-slate-300 mb-6">
+              Ready to get started? Fill out the form below to schedule your consultation.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Get Started Now
+              <ArrowDown className="ml-2 w-5 h-5" />
+            </Button>
           </div>
         </div>
       </section>

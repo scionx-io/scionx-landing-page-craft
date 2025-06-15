@@ -660,7 +660,6 @@
                         <li>1-page flow outline + next steps</li>
                         <li>PDF summary with recommendations</li>
                     </ul>
-                    <button onclick="setPackageAndScroll('Starter')" class="submit-btn">Schedule Consultation</button>
                 </div>
 
                 <div class="package-card">
@@ -681,7 +680,6 @@
                         <li>2 support calls to refine implementation</li>
                         <li>Comprehensive PDF blueprint</li>
                     </ul>
-                    <button onclick="setPackageAndScroll('Growth')" class="submit-btn">Schedule Consultation</button>
                 </div>
 
                 <div class="package-card">
@@ -701,8 +699,17 @@
                         <li>Ongoing support via email or Slack</li>
                         <li>Ongoing advisory & partner coordination</li>
                     </ul>
-                    <button onclick="setPackageAndScroll('Scale')" class="submit-btn">Schedule Consultation</button>
                 </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    Ready to get started? Fill out the form below to schedule your consultation.
+                </p>
+                <button onclick="document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' })" class="submit-btn" style="width: auto; display: inline-block; padding: 1rem 2rem;">
+                    Get Started Now ↓
+                </button>
             </div>
         </div>
     </section>
