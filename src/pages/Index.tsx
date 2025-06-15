@@ -156,7 +156,7 @@ ScionX Consultation Form
                 className="w-full h-full object-contain rounded-lg bg-white/10"
               />
             </div>
-            <h1 className="text-lg font-semibold !text-white" style={{ color: 'white !important' }}>
+            <h1 className="text-lg font-semibold" style={{ color: '#ffffff !important', textDecoration: 'none' }}>
               ScionX Web3 Consulting Services
             </h1>
           </div>
