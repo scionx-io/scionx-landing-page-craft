@@ -391,7 +391,7 @@ const Index = () => {
                       type="submit"
                       className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
                     >
-                      Schedule Consultation
+                      Submit
                       <ArrowRight className="ml-2 w-5 h-5 inline" />
                     </button>
                   </div>
