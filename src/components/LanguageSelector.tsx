@@ -30,23 +30,23 @@ const LanguageSelector = () => {
         console.log('Language changed to:', value);
         setLanguage(value);
       }}>
-        <SelectTrigger className="w-full bg-slate-800/50 border-slate-600 text-white">
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4" />
-            <span>{currentLanguage?.flag}</span>
-            <span>{currentLanguage?.name || language}</span>
+        <SelectTrigger className="w-full bg-slate-800/50 border-slate-600 text-white hover:bg-slate-700/50">
+          <div className="flex items-center gap-2 w-full">
+            <Globe className="w-4 h-4 flex-shrink-0" />
+            <span className="flex-shrink-0">{currentLanguage?.flag}</span>
+            <span className="flex-1 text-left truncate">{currentLanguage?.name || 'English'}</span>
           </div>
         </SelectTrigger>
-        <SelectContent className="bg-slate-800 border-slate-600 z-[100]">
+        <SelectContent className="bg-slate-800 border-slate-600 z-[9999] min-w-[180px]">
           {languages.map((lang) => (
             <SelectItem 
               key={lang.code} 
               value={lang.code}
-              className="text-white hover:bg-slate-700 focus:bg-slate-700"
+              className="text-white hover:bg-slate-700 focus:bg-slate-700 cursor-pointer"
             >
-              <div className="flex items-center gap-2">
-                <span>{lang.flag}</span>
-                <span>{lang.name}</span>
+              <div className="flex items-center gap-2 w-full">
+                <span className="flex-shrink-0">{lang.flag}</span>
+                <span className="flex-1">{lang.name}</span>
               </div>
             </SelectItem>
           ))}

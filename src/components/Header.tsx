@@ -21,7 +21,7 @@ const Header = () => {
               ScionX Web3 Consulting Services
             </h1>
           </div>
-          <div className="bg-red-500 p-2 rounded">
+          <div className="flex items-center">
             <LanguageSelector />
           </div>
         </div>
