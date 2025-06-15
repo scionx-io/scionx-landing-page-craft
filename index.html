@@ -1,30 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scionx Consulting - Pragmatic Crypto Payment Solutions</title>
-    <meta name="description" content="We help businesses accept crypto, bridge Web2 to Web3, and navigate on-chain payments — tailored to your context.">
+    <title>ScionX Consulting - Web3 Payments, Simplified</title>
+    <meta name="description" content="Custom Web3 payment strategies and clean execution. We help businesses integrate crypto rails with no friction and no custody.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
-            --secondary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            --accent-gradient: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-            --background-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f172a 100%);
-            --card-bg: rgba(30, 41, 59, 0.8);
-            --card-border: rgba(52, 211, 153, 0.2);
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-accent: #34d399;
-            --shadow-primary: rgba(5, 150, 105, 0.4);
-            --shadow-secondary: rgba(0, 0, 0, 0.3);
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --bg-start: #0f0f23;
+            --bg-mid: #1a1a2e;
+            --bg-end: #16213e;
+            --text-primary: #e5e7eb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --accent-sky: #60a5fa;
+            --accent-sky-hover: #93c5fd;
         }
 
         * {
@@ -35,332 +31,21 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--background-gradient);
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
             color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @media (min-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .hero-section {
-            text-align: left;
-            animation: slideInLeft 0.8s ease-out;
-        }
-
-        .logo-container {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-out 0.2s both;
-        }
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            box-shadow: 
-                0 10px 30px var(--shadow-primary),
-                0 0 0 1px rgba(52, 211, 153, 0.1);
-            transition: var(--transition-spring);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+            max-width: 700px;
             width: 100%;
-            height: 100%;
-            background: var(--primary-gradient);
-            opacity: 0;
-            transition: var(--transition-smooth);
+            animation: fadeIn 1s ease-out forwards;
         }
-
-        .logo:hover {
-            transform: scale(1.05) rotate(-5deg);
-            box-shadow: 
-                0 20px 40px var(--shadow-primary),
-                0 0 0 1px rgba(52, 211, 153, 0.3);
-        }
-
-        .logo:hover::before {
-            opacity: 0.1;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .brand-text {
-            margin-left: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-accent);
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.03em;
-            animation: fadeIn 1s ease-out 0.4s both;
-        }
-
-        .subtitle {
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
-            font-weight: 500;
-            color: var(--text-accent);
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-            animation: fadeIn 1s ease-out 0.6s both;
-        }
-
-        .description {
-            font-size: clamp(1.125rem, 3vw, 1.25rem);
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            animation: fadeIn 1s ease-out 0.8s both;
-        }
-
-        .cta-section {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            animation: fadeIn 1s ease-out 1s both;
-        }
-
-        .contact-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(20px);
-            box-shadow: 
-                0 20px 40px var(--shadow-secondary),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--accent-gradient);
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(52, 211, 153, 0.4);
-            box-shadow: 
-                0 30px 60px var(--shadow-secondary),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-card:hover::before {
-            opacity: 1;
-        }
-
-        .contact-text {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--text-accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.25rem;
-            transition: var(--transition-smooth);
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 12px;
-            background: rgba(52, 211, 153, 0.1);
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .contact-link::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: var(--transition-smooth);
-        }
-
-        .contact-link:hover {
-            color: var(--text-primary);
-            background: var(--primary-gradient);
-            border-color: transparent;
-            transform: translateX(5px);
-            box-shadow: 0 10px 20px var(--shadow-primary);
-        }
-
-        .contact-link:hover::after {
-            transform: translateX(5px);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            animation: slideInRight 0.8s ease-out 0.4s both;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            backdrop-filter: blur(20px);
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: var(--transition-smooth);
-            transform: scale(0);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(52, 211, 153, 0.4);
-            box-shadow: 0 20px 40px var(--shadow-secondary);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--text-accent);
-            border-radius: 50%;
-            animation: float 10s infinite linear;
-            opacity: 0.3;
-        }
-
-        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .floating-element:nth-child(2) { top: 60%; left: 20%; animation-delay: 2s; }
-        .floating-element:nth-child(3) { top: 30%; left: 80%; animation-delay: 4s; }
-        .floating-element:nth-child(4) { top: 80%; left: 70%; animation-delay: 6s; }
-        .floating-element:nth-child(5) { top: 10%; left: 60%; animation-delay: 8s; }
 
         @keyframes fadeIn {
             from {
@@ -373,174 +58,110 @@
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem auto;
+            display: block;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.375rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
+        p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .main-content p:last-of-type {
+            margin-bottom: 0;
         }
 
-        /* Focus states for accessibility */
-        .contact-link:focus {
-            outline: 2px solid var(--text-accent);
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--accent-sky);
+            color: var(--text-primary);
+            border-radius: 999px;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: var(--accent-sky);
+            color: var(--bg-start);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
+        }
+
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+        
+        .footer p {
+            font-size: inherit;
+            color: inherit;
+        }
+
+        /* Accessibility */
+        .cta-button:focus-visible {
+            outline: 2px solid var(--accent-sky-hover);
             outline-offset: 2px;
         }
 
-        /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .hero-section {
-                text-align: center;
-            }
-            
-            .logo-container {
-                justify-content: center;
-            }
-            
-            .main-content {
-                gap: 2rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            :root {
-                --text-primary: #ffffff;
-                --text-secondary: #ffffff;
-                --text-accent: #00ff00;
-                --card-bg: rgba(0, 0, 0, 0.9);
-                --card-border: rgba(255, 255, 255, 0.5);
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-    </div>
-
     <main class="container">
+        <img src="img/logo.png" alt="ScionX Logo" class="logo">
+        
+        <h1>ScionX Consulting</h1>
+        
+        <p class="subtitle">Web3 payments made simple. Custom strategies, clean execution.</p>
+        
         <div class="main-content">
-            <section class="hero-section">
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="img/logo.png" alt="Scionx Consulting Logo">
-                    </div>
-                    <div class="brand-text">scionx.consulting</div>
-                </div>
-                
-                <h1>Web3 Payments, Reimagined</h1>
-                
-                <p class="subtitle">Crypto Rails. Compliance. Execution.</p>
-                
-                <p class="description">
-                    ScionX helps businesses and individuals move money globally, faster and cheaper, using cutting-edge crypto & stablecoin infrastructure. We design, advise, and implement tailored cross-border payment flows with no custody and zero middlemen—just hands-on execution and real results.<br><br>
-                    <strong>Our mission:</strong> Fixing global money movement with better tech, transparent compliance, and relentless focus on simplicity.
-                </p>
-                
-                <div class="cta-section">
-                    <div class="contact-card">
-                        <div class="contact-text">Ready to streamline your payments?</div>
-                        <a href="mailto:wecare@scionx.consulting" class="contact-link">
-                            wecare@scionx.consulting
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3 class="feature-title">Cross-Border Experts</h3>
-                    <p class="feature-description">Advisory and workflow design for efficient global payments using crypto and stablecoins.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💸</div>
-                    <h3 class="feature-title">Crypto & Fiat Flows</h3>
-                    <p class="feature-description">Crypto-to-crypto, crypto-to-fiat, fiat-to-crypto, and hybrid bridges — all seamlessly implemented.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3 class="feature-title">Web3 Rail Integration</h3>
-                    <p class="feature-description">Deploy stablecoin rails, wallets, and compliance-ready treasury flows tailored to your needs.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Fast, Cost-Efficient Delivery</h3>
-                    <p class="feature-description">Accelerate transactions with minimal fees — no middlemen, no custodial risk, just speed and clarity.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3 class="feature-title">Regulatory Guidance</h3>
-                    <p class="feature-description">Navigate KYC/AML and cross-border rules with practical, transparent compliance expertise.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🧑‍💼</div>
-                    <h3 class="feature-title">Implementation Support</h3>
-                    <p class="feature-description">Hands-on help at every stage: design, partner selection, integration, setup, and ongoing support.</p>
-                </div>
-            </section>
+            <p>
+                We help businesses integrate crypto payment rails with no friction and no custody. Our focus is on creating tailored cross-border payment flows that are fast, cost-efficient, and compliant.
+            </p>
+    
+            <p>
+                Whether you need crypto-to-fiat, fiat-to-crypto, or hybrid solutions, we provide hands-on implementation support for your stack.
+            </p>
         </div>
+        
+        <a href="mailto:wecare@scionx.consulting" class="cta-button">
+            Start the Conversation
+        </a>
+        
+        <footer class="footer">
+            <p>&copy; 2025 ScionX. All rights reserved.</p>
+        </footer>
     </main>
 </body>
 </html>
