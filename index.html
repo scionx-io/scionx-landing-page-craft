@@ -16,6 +16,8 @@
             --secondary-gradient: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
             --accent-gradient: linear-gradient(135deg, #a5b4fc 0%, #93c5fd 100%);
             --background-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #0d0d0d 100%);
+            --section-gradient: linear-gradient(135deg, #000000 0%, #111111 50%, #0a0a0a 100%);
+            --card-gradient: linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(15,15,15,0.95) 100%);
             --card-bg: rgba(20,20,20,0.84);
             --card-border: rgba(96,165,250,0.18);
             --text-primary: #e5e7eb;
@@ -63,13 +65,14 @@
         }
 
         .header {
-            background: #000000;
+            background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--card-border);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .header .brand {
@@ -107,6 +110,7 @@
             text-align: center;
             color: var(--text-primary);
             position: relative;
+            background: var(--section-gradient);
         }
 
         .hero::before {
@@ -120,7 +124,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15;
+            opacity: 0.1;
             z-index: -1;
             filter: grayscale(100%) brightness(0.3);
         }
@@ -157,7 +161,7 @@
         }
 
         .benefit-card {
-            background: var(--card-bg);
+            background: var(--card-gradient);
             backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
             border-radius: 16px;
@@ -166,6 +170,7 @@
             transition: var(--transition-smooth);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
 
         .benefit-card::before {
@@ -184,7 +189,7 @@
         .benefit-card:hover {
             transform: translateY(-5px);
             border-color: rgba(96,165,250,0.22);
-            box-shadow: 0 20px 40px var(--shadow-secondary);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
         .benefit-card:hover::before {
@@ -208,13 +213,14 @@
         }
 
         .stablecoins-section {
-            background: rgba(15,15,15,0.6);
+            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(20,20,20,0.9) 50%, rgba(5,5,5,0.9) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(96,165,250,0.08);
             border-radius: 20px;
             padding: 2rem;
             margin: 3rem 0;
             text-align: center;
+            box-shadow: 0 16px 64px rgba(0,0,0,0.4);
         }
 
         .stablecoins-section h2 {
@@ -233,7 +239,7 @@
         }
 
         .stablecoin-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(30,30,30,0.8) 0%, rgba(40,40,40,0.8) 100%);
             border: 1px solid rgba(96,165,250,0.18);
             border-radius: 12px;
             padding: 1rem 1.5rem;
@@ -244,12 +250,14 @@
             align-items: center;
             gap: 0.75rem;
             flex-direction: column;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
         }
 
         .stablecoin-item:hover {
             background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 100%);
             color: #0f0f23;
             transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(96,165,250,0.3);
         }
 
         .stablecoin-logo {
@@ -265,13 +273,13 @@
         }
 
         .packages {
-            background: rgba(10,10,10,0.7);
+            background: linear-gradient(135deg, rgba(5,5,5,0.95) 0%, rgba(15,15,15,0.95) 50%, rgba(8,8,8,0.95) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(96,165,250,0.08);
             border-radius: 20px;
             padding: 3rem;
             margin: 3rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.5);
         }
 
         .packages h2 {
@@ -295,13 +303,14 @@
             padding: 2rem;
             position: relative;
             transition: var(--transition-smooth);
-            background: rgba(20,20,20,0.6);
+            background: var(--card-gradient);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
         }
 
         .package-card:hover {
             border-color: var(--text-accent);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px var(--shadow-primary);
+            box-shadow: 0 20px 60px rgba(96,165,250,0.2);
         }
 
         .package-header {
@@ -365,13 +374,14 @@
         }
 
         .form-section {
-            background: rgba(15,15,15,0.6);
+            background: linear-gradient(135deg, rgba(8,8,8,0.95) 0%, rgba(18,18,18,0.95) 50%, rgba(10,10,10,0.95) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(96,165,250,0.08);
             border-radius: 20px;
             padding: 3rem;
             margin: 3rem 0;
             color: var(--text-primary);
+            box-shadow: 0 16px 64px rgba(0,0,0,0.4);
         }
 
         .form-section h2 {
@@ -411,7 +421,7 @@
             border: 1px solid rgba(96,165,250,0.12);
             border-radius: 8px;
             font-size: 1rem;
-            background: rgba(20,20,20,0.6);
+            background: linear-gradient(135deg, rgba(25,25,25,0.8) 0%, rgba(30,30,30,0.8) 100%);
             color: var(--text-primary);
             backdrop-filter: blur(10px);
             transition: var(--transition-smooth);
@@ -447,11 +457,12 @@
             transition: var(--transition-smooth);
             margin-top: 1rem;
             width: 100%;
+            box-shadow: 0 4px 16px rgba(96,165,250,0.3);
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px var(--shadow-primary);
+            box-shadow: 0 10px 30px rgba(96,165,250,0.4);
         }
 
         .footer {
@@ -460,6 +471,7 @@
             color: var(--text-secondary);
             border-top: 1px solid var(--card-border);
             margin-top: 3rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(10,10,10,0.8) 100%);
         }
 
         .footer .brand-footer {
