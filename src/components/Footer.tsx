@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -18,6 +19,35 @@ const Footer = () => {
               ScionX Web3 Consulting Services
             </h3>
           </div>
+          
+          {/* Social Media Links */}
+          <div className="flex items-center justify-center gap-6 mb-4">
+            <a 
+              href="https://twitter.com/scionx_io" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <Twitter size={24} />
+            </a>
+            <a 
+              href="https://instagram.com/scionx_io" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/101620307" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
+              <Linkedin size={24} />
+            </a>
+          </div>
+          
           <p className="text-slate-400">
             © 2024 ScionX Web3 Consulting Services. All rights reserved.
           </p>
