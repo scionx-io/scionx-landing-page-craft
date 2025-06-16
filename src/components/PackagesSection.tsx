@@ -78,7 +78,7 @@ const PackagesSection = () => {
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold text-white mb-2">{pkg.name}</CardTitle>
                 <CardDescription className="text-slate-400 mb-4">{pkg.description}</CardDescription>
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent min-h-[2.25rem] flex items-center justify-center">
                   {pkg.price}
                 </div>
               </CardHeader>
