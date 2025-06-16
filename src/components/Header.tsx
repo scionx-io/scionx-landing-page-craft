@@ -13,7 +13,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
               <img 
-                src="/public/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
+                src="/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
                 alt="ScionX Logo" 
                 className="w-full h-full object-contain rounded-lg bg-white/10"
               />
@@ -22,22 +22,12 @@ const Header = () => {
               ScionX Web3 Consulting Services
             </h1>
           </div>
-          <div className="flex items-center border-4 border-pink-400 bg-yellow-50 p-2 rounded-md">
-            {/* DEBUG: Marker before Suspense */}
-            <div className="bg-blue-300 text-blue-900 font-extrabold px-4 py-2 rounded-xl text-2xl mr-2">
-              BEFORE SUSPENSE
-            </div>
+          <div className="flex items-center">
             <React.Suspense fallback={
-              <div className="bg-red-900 text-yellow-200 text-lg font-bold px-3 py-2 rounded-md">
-                Suspense fallback: LanguageSelector did NOT render!
-              </div>
+              <div className="w-[180px] h-10 bg-slate-800/50 rounded-md animate-pulse"></div>
             }>
               <LanguageSelector />
             </React.Suspense>
-            {/* DEBUG: Marker after Suspense */}
-            <div className="bg-blue-300 text-blue-900 font-extrabold px-4 py-2 rounded-xl text-2xl ml-2">
-              AFTER SUSPENSE
-            </div>
           </div>
         </div>
       </div>

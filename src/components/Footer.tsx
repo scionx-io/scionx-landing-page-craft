@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
               <img 
-                src="/public/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
+                src="/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
                 alt="ScionX Logo" 
                 className="w-full h-full object-contain rounded-md bg-white/10"
                 onLoad={() => console.log('Footer logo loaded successfully')}

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
@@ -17,11 +18,33 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
-  // DEBUG: Rendering LanguageSelector body at all?
+  const { language, setLanguage } = useLanguage();
+  
+  const currentLanguage = languages.find(lang => lang.code === language);
+  
   return (
-    <div className="bg-fuchsia-300 text-fuchsia-900 font-black text-center text-2xl rounded-xl px-4 py-6 m-4">
-      LANGUAGE SELECTOR: COMPONENT BODY REACHED!
-    </div>
+    <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+      <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-700 text-white">
+        <div className="flex items-center gap-2">
+          <Globe size={16} />
+          <span className="text-sm">{currentLanguage?.flag} {currentLanguage?.name}</span>
+        </div>
+      </SelectTrigger>
+      <SelectContent className="bg-slate-800 border-slate-700">
+        {languages.map((lang) => (
+          <SelectItem 
+            key={lang.code} 
+            value={lang.code}
+            className="text-white hover:bg-slate-700 focus:bg-slate-700"
+          >
+            <div className="flex items-center gap-2">
+              <span>{lang.flag}</span>
+              <span>{lang.name}</span>
+            </div>
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   );
 };
 
