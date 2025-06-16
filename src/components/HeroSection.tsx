@@ -9,6 +9,7 @@ const HeroSection = () => {
   
   console.log('HeroSection: Current language:', language);
   console.log('HeroSection: hero_title translation:', t('hero_title'));
+  console.log('HeroSection: React component is rendering');
 
   return (
     <section className="relative overflow-hidden">
