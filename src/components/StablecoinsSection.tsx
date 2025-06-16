@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -5,12 +6,12 @@ const StablecoinsSection = () => {
   const { t } = useLanguage();
   
   const stablecoins = [
-    { name: "USDC", logo: "/public/lovable-uploads/cb2e462b-2649-41db-86f8-81f8f56c6383.png" },
-    { name: "RLUSD", logo: "/public/lovable-uploads/3554892a-692b-46bd-a420-25f9cb9655b1.png" },
-    { name: "USDT", logo: "/public/lovable-uploads/401d2fbe-8c09-44cd-a0c2-d127b3d58323.png" },
-    { name: "EURC", logo: "/public/lovable-uploads/ad5d43c8-e27c-4d11-8a9b-46a88f604673.png" },
-    { name: "PYUSD", logo: "/public/lovable-uploads/be76f49a-3b75-471c-87e8-60809a15718d.png" },
-    { name: "FDUSD", logo: "/public/lovable-uploads/14a06070-5c77-4f1e-a1a1-af7721377770.png" }
+    { name: "USDC", logo: "/lovable-uploads/cb2e462b-2649-41db-86f8-81f8f56c6383.png" },
+    { name: "RLUSD", logo: "/lovable-uploads/3554892a-692b-46bd-a420-25f9cb9655b1.png" },
+    { name: "USDT", logo: "/lovable-uploads/401d2fbe-8c09-44cd-a0c2-d127b3d58323.png" },
+    { name: "EURC", logo: "/lovable-uploads/ad5d43c8-e27c-4d11-8a9b-46a88f604673.png" },
+    { name: "PYUSD", logo: "/lovable-uploads/be76f49a-3b75-471c-87e8-60809a15718d.png" },
+    { name: "FDUSD", logo: "/lovable-uploads/14a06070-5c77-4f1e-a1a1-af7721377770.png" }
   ];
 
   return (
@@ -28,6 +29,8 @@ const StablecoinsSection = () => {
                     src={coin.logo} 
                     alt={coin.name} 
                     className="w-10 h-10 object-contain rounded-full"
+                    onLoad={() => console.log(`${coin.name} logo loaded`)}
+                    onError={(e) => console.log(`${coin.name} logo failed to load`, e)}
                   />
                 </div>
               </div>
