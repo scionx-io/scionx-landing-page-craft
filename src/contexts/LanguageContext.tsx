@@ -1,5 +1,4 @@
-
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 export type Language = 'en' | 'es' | 'fr' | 'it' | 'zh' | 'de' | 'pt' | 'ja' | 'ko' | 'ar';
 
@@ -387,12 +386,25 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
+  console.log('LanguageProvider: Current language is', language);
+
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['en']] || key;
+    const translation = translations[language]?.[key as keyof typeof translations['en']];
+    console.log(`Translation for "${key}" in ${language}:`, translation || key);
+    return translation || key;
   };
 
+  const handleLanguageChange = (lang: Language) => {
+    console.log('LanguageProvider: Changing language from', language, 'to', lang);
+    setLanguage(lang);
+  };
+
+  useEffect(() => {
+    console.log('LanguageProvider: Language changed to', language);
+  }, [language]);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleLanguageChange, t }}>
       {children}
     </LanguageContext.Provider>
   );

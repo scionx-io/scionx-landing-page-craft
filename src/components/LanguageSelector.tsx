@@ -18,13 +18,19 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
-  console.log('LanguageSelector rendering');
-  
   const { language, setLanguage } = useLanguage();
   const currentLanguage = languages.find(lang => lang.code === language);
   
+  console.log('LanguageSelector: Current language:', language);
+  console.log('LanguageSelector: Current language object:', currentLanguage);
+  
+  const handleLanguageChange = (value: string) => {
+    console.log('LanguageSelector: Changing language to:', value);
+    setLanguage(value as Language);
+  };
+  
   return (
-    <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+    <Select value={language} onValueChange={handleLanguageChange}>
       <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-700 text-white hover:bg-slate-700/50">
         <div className="flex items-center gap-2">
           <Globe size={16} />
