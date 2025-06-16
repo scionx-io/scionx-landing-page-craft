@@ -3,7 +3,7 @@ import React from 'react';
 import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-  console.log('Footer component is rendering');
+  console.log('Footer component is rendering - NEW VERSION');
   
   return (
     <footer className="bg-slate-950/80 border-t border-slate-800 py-8">
@@ -15,8 +15,8 @@ const Footer = () => {
                 src="/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
                 alt="ScionX Logo" 
                 className="w-full h-full object-contain rounded-md bg-white/10"
-                onLoad={() => console.log('Footer logo loaded successfully')}
-                onError={() => console.log('Footer logo failed to load')}
+                onLoad={() => console.log('Footer logo loaded successfully - NEW VERSION')}
+                onError={(e) => console.log('Footer logo failed to load - NEW VERSION', e)}
               />
             </div>
             <h3 className="text-lg font-semibold text-white">
@@ -31,7 +31,7 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
-              onClick={() => console.log('Twitter link clicked')}
+              onClick={() => console.log('Twitter link clicked - NEW VERSION')}
             >
               <Twitter size={20} className="sm:w-6 sm:h-6" />
             </a>
@@ -40,7 +40,7 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
-              onClick={() => console.log('Instagram link clicked')}
+              onClick={() => console.log('Instagram link clicked - NEW VERSION')}
             >
               <Instagram size={20} className="sm:w-6 sm:h-6" />
             </a>
@@ -49,7 +49,7 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
-              onClick={() => console.log('LinkedIn link clicked')}
+              onClick={() => console.log('LinkedIn link clicked - NEW VERSION')}
             >
               <Linkedin size={20} className="sm:w-6 sm:h-6" />
             </a>

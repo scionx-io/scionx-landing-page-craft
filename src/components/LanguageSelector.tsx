@@ -18,12 +18,19 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
+  console.log('LanguageSelector component is rendering - NEW VERSION');
+  
   const { language, setLanguage } = useLanguage();
+  console.log('Current language:', language);
   
   const currentLanguage = languages.find(lang => lang.code === language);
+  console.log('Current language object:', currentLanguage);
   
   return (
-    <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+    <Select value={language} onValueChange={(value: Language) => {
+      console.log('Language changing to:', value);
+      setLanguage(value);
+    }}>
       <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-700 text-white">
         <div className="flex items-center gap-2">
           <Globe size={16} />
