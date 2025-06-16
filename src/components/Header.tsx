@@ -1,10 +1,10 @@
 
 import React from 'react';
-// Use React.lazy for LanguageSelector
-const LanguageSelector = React.lazy(() => import('@/components/LanguageSelector'));
+import LanguageSelector from '@/components/LanguageSelector';
 
 const Header = () => {
-  console.log('Header component rendering');
+  const timestamp = Date.now();
+  console.log('Header component rendering - TIMESTAMP:', timestamp);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800">
@@ -13,9 +13,11 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
               <img 
-                src="/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
+                src={`/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png?v=${timestamp}`}
                 alt="ScionX Logo" 
                 className="w-full h-full object-contain rounded-lg bg-white/10"
+                onLoad={() => console.log('Header logo loaded - TIMESTAMP:', timestamp)}
+                onError={(e) => console.log('Header logo failed - TIMESTAMP:', timestamp, e)}
               />
             </div>
             <h1 className="text-lg font-semibold text-white">
@@ -23,11 +25,9 @@ const Header = () => {
             </h1>
           </div>
           <div className="flex items-center">
-            <React.Suspense fallback={
-              <div className="w-[180px] h-10 bg-slate-800/50 rounded-md animate-pulse"></div>
-            }>
+            <div key={timestamp} className="language-selector-wrapper">
               <LanguageSelector />
-            </React.Suspense>
+            </div>
           </div>
         </div>
       </div>

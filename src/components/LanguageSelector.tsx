@@ -18,40 +18,43 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
-  console.log('LanguageSelector component is rendering - NEW VERSION');
+  const timestamp = Date.now();
+  console.log('LanguageSelector component is rendering - TIMESTAMP:', timestamp);
   
   const { language, setLanguage } = useLanguage();
-  console.log('Current language:', language);
+  console.log('Current language - TIMESTAMP:', timestamp, 'Language:', language);
   
   const currentLanguage = languages.find(lang => lang.code === language);
-  console.log('Current language object:', currentLanguage);
+  console.log('Current language object - TIMESTAMP:', timestamp, 'Object:', currentLanguage);
   
   return (
-    <Select value={language} onValueChange={(value: Language) => {
-      console.log('Language changing to:', value);
-      setLanguage(value);
-    }}>
-      <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-700 text-white">
-        <div className="flex items-center gap-2">
-          <Globe size={16} />
-          <span className="text-sm">{currentLanguage?.flag} {currentLanguage?.name}</span>
-        </div>
-      </SelectTrigger>
-      <SelectContent className="bg-slate-800 border-slate-700">
-        {languages.map((lang) => (
-          <SelectItem 
-            key={lang.code} 
-            value={lang.code}
-            className="text-white hover:bg-slate-700 focus:bg-slate-700"
-          >
-            <div className="flex items-center gap-2">
-              <span>{lang.flag}</span>
-              <span>{lang.name}</span>
-            </div>
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <div className="language-selector-container" style={{ border: '2px solid red', padding: '4px' }}>
+      <Select value={language} onValueChange={(value: Language) => {
+        console.log('Language changing to - TIMESTAMP:', timestamp, 'New language:', value);
+        setLanguage(value);
+      }}>
+        <SelectTrigger className="w-[180px] bg-slate-800/50 border-slate-700 text-white hover:bg-slate-700/50">
+          <div className="flex items-center gap-2">
+            <Globe size={16} />
+            <span className="text-sm">{currentLanguage?.flag} {currentLanguage?.name}</span>
+          </div>
+        </SelectTrigger>
+        <SelectContent className="bg-slate-800 border-slate-700 z-[60]">
+          {languages.map((lang) => (
+            <SelectItem 
+              key={`${lang.code}-${timestamp}`}
+              value={lang.code}
+              className="text-white hover:bg-slate-700 focus:bg-slate-700 cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <span>{lang.flag}</span>
+                <span>{lang.name}</span>
+              </div>
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
   );
 };
 
