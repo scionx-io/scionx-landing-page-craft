@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Globe } from 'lucide-react';
@@ -27,7 +27,32 @@ const LanguageSelector = () => {
   const handleLanguageChange = (value: string) => {
     console.log('LanguageSelector: Changing language to:', value);
     setLanguage(value as Language);
+    
+    // Update HTML language selector
+    const currentLanguageEl = document.getElementById('current-language');
+    const selectedLang = languages.find(lang => lang.code === value);
+    if (currentLanguageEl && selectedLang) {
+      currentLanguageEl.textContent = `${selectedLang.flag} ${selectedLang.name}`;
+    }
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = value;
   };
+
+  // Listen for changes from HTML language selector
+  useEffect(() => {
+    const handleHtmlLanguageChange = (event: CustomEvent) => {
+      const newLanguage = event.detail.language;
+      console.log('Received language change from HTML:', newLanguage);
+      setLanguage(newLanguage as Language);
+    };
+
+    window.addEventListener('htmlLanguageChange', handleHtmlLanguageChange as EventListener);
+    
+    return () => {
+      window.removeEventListener('htmlLanguageChange', handleHtmlLanguageChange as EventListener);
+    };
+  }, [setLanguage]);
   
   return (
     <Select value={language} onValueChange={handleLanguageChange}>

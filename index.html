@@ -1087,7 +1087,12 @@
             document.getElementById('language-dropdown').classList.remove('show');
             document.querySelector('.language-btn').classList.remove('active');
             
-            // Here you could add translation functionality
+            // Dispatch custom event to React
+            const event = new CustomEvent('htmlLanguageChange', {
+                detail: { language: code }
+            });
+            window.dispatchEvent(event);
+            
             console.log(`Language changed to: ${code}`);
             
             // Update HTML lang attribute
