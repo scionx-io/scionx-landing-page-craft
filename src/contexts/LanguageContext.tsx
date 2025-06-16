@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+
+import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from 'react';
 
 export type Language = 'en' | 'es' | 'fr' | 'it' | 'zh' | 'de' | 'pt' | 'ja' | 'ko' | 'ar';
 
@@ -388,16 +389,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   console.log('LanguageProvider: Current language is', language);
 
-  const t = (key: string): string => {
+  const t = useCallback((key: string): string => {
     const translation = translations[language]?.[key as keyof typeof translations['en']];
     console.log(`Translation for "${key}" in ${language}:`, translation || key);
     return translation || key;
-  };
+  }, [language]);
 
-  const handleLanguageChange = (lang: Language) => {
+  const handleLanguageChange = useCallback((lang: Language) => {
     console.log('LanguageProvider: Changing language from', language, 'to', lang);
     setLanguage(lang);
-  };
+  }, [language]);
 
   useEffect(() => {
     console.log('LanguageProvider: Language changed to', language);
