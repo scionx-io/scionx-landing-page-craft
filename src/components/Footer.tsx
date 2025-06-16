@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-slate-950/80 border-t border-slate-800 py-8">
       <div className="container mx-auto px-6">
         <div className="text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <div className="w-8 h-8 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-0.5">
               <img 
                 src="/public/lovable-uploads/1bc7272d-2d1c-4851-9546-e87b56f9f0c5.png" 
@@ -21,34 +21,34 @@ const Footer = () => {
           </div>
           
           {/* Social Media Links */}
-          <div className="flex items-center justify-center gap-6 mb-4">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6">
             <a 
               href="https://twitter.com/scionx_io" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
             >
-              <Twitter size={24} />
+              <Twitter size={20} className="sm:w-6 sm:h-6" />
             </a>
             <a 
               href="https://instagram.com/scionx_io" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
             >
-              <Instagram size={24} />
+              <Instagram size={20} className="sm:w-6 sm:h-6" />
             </a>
             <a 
               href="https://www.linkedin.com/company/101620307/admin/dashboard/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-lg"
             >
-              <Linkedin size={24} />
+              <Linkedin size={20} className="sm:w-6 sm:h-6" />
             </a>
           </div>
           
-          <p className="text-slate-400">
+          <p className="text-slate-400 text-sm sm:text-base px-4">
             © 2024 ScionX Web3 Consulting Services. All rights reserved.
           </p>
         </div>
